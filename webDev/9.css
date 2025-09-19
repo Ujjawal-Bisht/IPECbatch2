@@ -1,0 +1,25 @@
+h1{
+    color: red;
+    background-color: blue;
+}
+p{
+    color: aqua;
+    background-color: green;
+}
+strong{
+    color: red;
+    background-color: yellow;
+}
+
+#id1{
+    color: red;
+    background-color: yellow;
+}
+.class1{
+    color: red;
+    background-color: yellow;
+}
+em{
+    color: red;
+    background-color: yellow;
+}
