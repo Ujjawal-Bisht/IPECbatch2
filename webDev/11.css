@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    
+}
+.container{
+    background-color: yellow;
+    display: flex;
+    flex-direction: column; /* for row type row, it will arrange all boxes in a single row*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
+
+.box1{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: red;
+    margin: 10px;
+    text-align: center;
+    justify-content: space-evenly;
+    /* For Circle */
+    border-radius: 100%;
+}
+
+.box2{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: green;
+    /* text-align: center; */
+    /* justify-content: space-evenly; */
+    margin: 10px;
+    height: 50px;
+    width: 50px;
+}
