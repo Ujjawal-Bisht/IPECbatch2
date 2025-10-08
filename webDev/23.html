@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nestedd for</title>
+  </head>
+  <body>
+    <script>
+      //printing prime numbers between 1 to 50.
+      for (let num = 50; num <= 100; num++) {
+        let isPrime = true;
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i == 0) {
+            isPrime = false;
+            break;
+          }
+        }
+        if (isPrime && num > 1) {
+          document.write(`${num} is a prime number<br>`);
+        }
+      }
+    </script>
+  </body>
+</html>

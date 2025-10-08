@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested-if</title>
+</head>
+<body>
+    <script>
+        let member = true;
+        let spentAmt = 100;
+        if (member){
+            if(spentAmt > 100){
+                document.write("you get 10% discount")
+            }else{
+                console.log("not eligible for discount")
+            }
+        }else{
+            if(spentAmt > 150){
+                document.write("you get 5% discount")
+            }else{
+                console.log("not eligible for discount")
+            }
+        }
+    </script>
+</body>
+</html>
