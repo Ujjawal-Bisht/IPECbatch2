@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        #container{
+            display: flex;
+            justify-content: center;
+            border: 3px solid balck;
+        }
+        .p1{
+            color: red;
+            border: 2px solid black;
+            max-width: 140px;
+            background-color: yellow;
+        }
+        .p2{
+            color: blue;
+            border: 2px solid black;
+            max-width: 140px;
+            background-color: lightgreen;
+        }
+        #result{
+            display: flexbox;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="text1" placeholder="Enter any number:">
+        <br><br>
+        <input type="button" value="Start" onclick="myFunction()">
+    </div>
+
+    <div id="result"></div>
+    
+
+    <script>
+        function myFunction(){
+            let text1 = document.getElementById("text1").value;
+            let res = document.getElementById("result");
+            for(let i=1; i<=10; i++){
+                if (i%2 == 0){
+                    res.innerHTML += `<p class="p1">${text1} * ${i} = ${text1*i}</p>`;
+                }else{
+                    res.innerHTML += `<p class="p2">${text1} * ${i} = ${text1*i}</p>`;
+                }
+                // let result = text1 * i;
+                // console.log(text1 + " * " + i + " = " + result );
+                // document.write(`${text1} * ${i} = ${text1*i}<br>`)
+                
+            }
+        }
+    </script>
+</body>
+</html>
