@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArrMap</title>
+</head>
+<body>
+    <script>
+        marks = [1,2,3,4,5];
+        for(let i = 0; i < marks.length; i++) {
+            console.log(marks[i]);
+        }
+
+        
+        for (let val of marks) {
+            console.log(val);
+        }
+
+        marks.forEach((element) => {
+            console.log(element);
+        });
+
+        //Increase 10marks to each student
+        let newMarks = marks.map((mark) => {
+            return mark + 10;
+        });
+        console.log(newMarks);
+
+        function sqr(n){
+            return n*n;
+        }
+        let data = marks.map(sqr);
+        console.log(data);
+
+    </script>
+</body>
+</html>
