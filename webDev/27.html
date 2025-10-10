@@ -7,32 +7,71 @@
 </head>
 <body>
     <script>
-        marks = [1,2,3,4,5];
-        for(let i = 0; i < marks.length; i++) {
-            console.log(marks[i]);
+        marks = [1,2,3,4,5,6,7,8,9,10];
+        for(let i = 0; i < marks.length; i++) {     //Traditional for loop
+            // console.log(marks[i]);
         }
 
         
         for (let val of marks) {
-            console.log(val);
+            // console.log(val);            //For of loop
         }
 
-        marks.forEach((element) => {
-            console.log(element);
+        marks.forEach((element) => {            //forEach loop
+            // console.log(element);            //It is used when we have to perform some operation on each element of array
         });
 
         //Increase 10marks to each student
-        let newMarks = marks.map((mark) => {
-            return mark + 10;
+        let newMarks = marks.map((mark) => {        //map function
+            return mark + 10;                   //It is used when we have to create a new array from the existing array after performing some operation on each element of array
         });
         console.log(newMarks);
 
         function sqr(n){
-            return n*n;
+            return n*n;      //It is used when we have to return a function as parameter
         }
         let data = marks.map(sqr);
         console.log(data);
 
+        let sum=0;
+/**
+ * This function adds a given number to the sum variable.
+ * It is typically used within a forEach loop to calculate the sum of all elements in an array.
+ * @param {number} n - The number to be added to the sum.
+ */
+        function add(n){
+            sum += n;
+        }
+        marks.forEach(add);
+        console.log(sum);
+
+        let data2 = marks.map((n) => { 
+            return n*n*n;           //It is used when we have to return a function as parameter
+        });
+        console.log(data2);
+
+
+        // filter function
+        let list = [1,2,3,4,5,6,7,8,9,10];
+        let even = list.filter((n) => {
+            return n%2==0;          //It is used when we have to create a new array from the existing array after performing some operation on each element of array and returning only those elements which satisfy the condition
+        });
+        console.log(even);
+
+        console.log("first");
+        setTimeout(() => {
+            console.log("second");
+        }, 2000);
+        // console.log("second");
+        // console.log("third");
+        async function logWithDelay() {
+            setTimeout(() => {
+                console.log("third");
+            }, 3000);
+        }
+        logWithDelay();
+        console.log("fourth");
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API's</title>
+</head>
+<body>
+    <script>
+        console.log('hi')
+
+        async function display(){
+            let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');  //fetch function is used to fetch data from a url and it returns a promise
+
+            let data = await response.json();   //json function is used to convert the response into json format and it also returns a promise
+            console.log(data['meals'][0]['strMealThumb']);  //It will print a promise object
+        }
+
+        display();
+    </script>
+</body>
+</html>
