@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="29.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col">
+                <h1 class="bg-success text-white text-center">Yokoso! Watashi no Macchi Bazar!</h1>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-10">
+                <input type='text' id="t1" class="form-control" placeholder="Enter Your Name">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-success w-100 mt-3" onclick="display()">Show</button>
+        </div>
+        <div class="row" id="output">
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        async function display() {
+            let cat = document.getElementById("t1").value;
+            let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood');
+            let data = await response.json();
+
+            let st = "";
+            let item = data['meals'];
+
+            item.forEach((item) => {
+                st += `
+                    <div>
+                        <img src="${item.strMealThumb}" alt="img">
+                        <p>${item.strMeal}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById("output").innerHTML = st;
+            console.log(cat);
+            }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
