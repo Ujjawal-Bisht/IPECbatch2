@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    /* General body styling */
+    body {
+        margin-top: 100px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9; /* Light background for better contrast */
+    }
+
+    /* Styling the calculator container */
+    div {
+        width: 40%;
+        margin: 0 auto;
+        border: 2px solid #333; /* Darker border for contrast */
+        padding: 20px;
+        background-color: #fff; /* White background for the calculator */
+        border-radius: 10px; /* Rounded corners for the calculator */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    }
+
+    div:hover {
+        transform: scale(1.02); /* Slightly enlarges the calculator on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
+    }
+
+    /* Styling the input box */
+    #textbox {
+        width: 90%;
+        padding: 15px;
+        font-size: 20px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth focus effect */
+    }
+
+    #textbox:focus {
+        border-color: #007bff; /* Blue border on focus */
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
+        outline: none; /* Removes default outline */
+    }
+
+    /* Styling the buttons */
+    button {
+        width: 22%; /* Adjusted width for better alignment */
+        padding: 15px;
+        margin: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f9fa; /* Light gray background */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    }
+
+    button:hover {
+        background-color: #007bff; /* Blue background on hover */
+        color: #fff; /* White text on hover */
+        transform: scale(1.1); /* Slightly enlarges the button on hover */
+    }
+
+    button:active {
+        transform: scale(0.95); /* Shrinks the button slightly on click */
+    }
+
+    /* Styling the "Calculate" button */
+    #calc {
+        background-color: #28a745; /* Green background */
+        color: #fff; /* White text */
+        border: none; /* Removes border */
+    }
+
+    #calc:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+
+    #calc:active {
+        background-color: #1e7e34; /* Even darker green on click */
+    }
+</style>
+</head>
+<body>
+    <div id="body">
+        <label for="textbox"></label>
+        <input type="text" id="textbox" placeholder="Enter expression">
+        <br><br>
+        <button type="button" onclick="display('7')">7</button>
+        <button type="button" onclick="display('8')">8</button>
+        <button type="button" onclick="display('9')">9</button>
+        <button type="button" onclick="display('*')">*</button>
+        <br><br>
+        <button type="button" onclick="display('4')">4</button>
+        <button type="button" onclick="display('5')">5</button>
+        <button type="button" onclick="display('6')">6</button>
+        <button type="button" onclick="display('-')">-</button>
+        <br><br>
+        <button type="button" onclick="display('1')">1</button>
+        <button type="button" onclick="display('2')">2</button>
+        <button type="button" onclick="display('3')">3</button>
+        <button type="button" onclick="display('+')">+</button>
+        <br><br>
+        <button type="button" onclick="display('0')">0</button>
+        <button type="button" onclick="clr()">C</button>
+        <button type="button" onclick="erz()">del</button>
+        <button type="button" onclick="display('/')">/</button>
+        <br><br>
+        <button type="button" id="calc" onclick="cal()">Calculate</button>
+    </div>
+</body>
+<script>
+    var st = '';
+    function display(val){
+        st += val;
+        document.getElementById('textbox').value = st;
+    }
+
+    function erz(){
+        st = st.slice(0, -1);
+        document.getElementById('textbox').value = st;
+    }
+
+    function cal(){
+        document.getElementById('textbox').value = eval(st);
+        st = document.getElementById('textbox').value;
+    }
+
+    function clr(){
+        st = '';
+        document.getElementById('textbox').value = st;
+    }
+</script>
+</html>

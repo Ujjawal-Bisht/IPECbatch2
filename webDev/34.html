@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        form{
+            border: 2px solid black;
+            padding: 20px;
+            width: 250px;
+        }
+        input[type=text]:focus, input[type=password]:focus{
+            background-color: rgb(202, 202, 12);
+        }
+        input{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Form</h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Enter your username" id="username" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <br><br>
+        <div>
+            <button type="submit" onclick="validator()">Login</button>
+            <button type="reset" onclick="reset()">Reset</button>
+        </div>
+    </form>
+</body>
+<script>
+    function validator(){
+        let uName = document.getElementById('username').value;
+        let pwd = document.getElementById("password").value;
+
+        if (uName == '' || pwd == ''){
+            alert('Username and password can not be empty');
+        }
+        if (pwd.length < 6){
+            alert('Password must be at least 6 characters long');   
+        }
+        // if(){
+
+        // }
+    }
+
+    function reset(){
+        document.getElementById('username').value = '';
+        document.getElementById("password").value = '';
+
+    }
+</script>
+</html>
