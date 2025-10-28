@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>My To-Do List</h1>
+
+    <form>
+        <label for="textbox">Task</label>
+        <input type="text" placeholder="Enter a task" id="textbox" title="Task description">
+        <label for="date">Due date</label>
+        <input type="date" id="date" title="Task due date" placeholder="YYYY-MM-DD">
+
+        <button type="button" onclick="addTask()">Add Task</button>
+    </form>
+
+    <div id="d1">
+
+    </div>
+</body>
+<script>
+    // JavaScript code
+    function addTask(){
+        let parent = document.getElementById('d1');
+        let newChild = document.createElement('p');
+        newChild.innerHTML = document.getElementById('textbox').value + "           ";
+        parent.appendChild(newChild);
+
+        let dltbnt = document.createElement('button');
+        dltbnt.innerHTML = "Delete";
+        newChild.appendChild(dltbnt);
+
+        dltbnt.addEventListener('click',(e)=>{
+            e.target.parrentElement.remove()
+        })
+
+        newChild.addEventListener('click',(e)=>{
+            e.target.setAttribute("style","background-color: lightgreen; text-decoration: line-through");
+        })
+
+    }
+</script>
+</html>
