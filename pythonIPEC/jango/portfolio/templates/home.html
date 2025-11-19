@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            color: red;
+            font-size: 50px;
+        }
+        a{
+            text-align: center;
+            color: green;
+            font-size: 30px;
+        }
+        body{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my portfolio APP</h1>
+    <!-- Navigation links to the other pages -->
+    <nav style="text-align:center; margin-top:20px;">
+        <a href="{% url 'profile' %}">Profile</a> |
+        <a href="{% url 'skills' %}">Skills</a> |
+        <a href="{% url 'project' %}">Project</a>
+        <!-- <h1>{{info}}</h1> -->
+        <br>
+        <H2>
+            {% if info.personal_info.age > 18 %}
+                Mr. {{info.personal_info.name}}, you are eligible for voting.
+            {% else %}
+                Mr. {{info.personal_info.name}}, you are not eligible for voting.
+            {% endif %}
+        </H2>
+        <h2>
+            Your skills are
+            {% for skill in info.skills %}
+                {{skill}} |
+            {% endfor %}
+        </h2>
+    </nav>
+</body>
+</html>
