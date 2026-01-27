@@ -1,1 +1,5 @@
 virtualEnv
+my_package/__pycache__/
+jango/myvenv
+jango/libProject/.venv
+jango/libProject/.github

@@ -18,12 +18,16 @@
         body{
             background-color: wheat;
         }
+        nav{
+            text-align:center; 
+            margin-top:20px;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to my portfolio APP</h1>
     <!-- Navigation links to the other pages -->
-    <nav style="text-align:center; margin-top:20px;">
+    <nav>
         <a href="{% url 'profile' %}">Profile</a> |
         <a href="{% url 'skills' %}">Skills</a> |
         <a href="{% url 'project' %}">Project</a>

@@ -17,7 +17,6 @@ def home(request):
         'skills': ['Python', 'Django']
     }
 
-    # newInfo = [{"name": "Ujjawal Bisht", "city": "Delhi", "age": 20, "Gender": "M"}, ["Python", "Django"], {"name": "Ujjawal Bisht", "city": "Delhi", "age": 20, "Gender": "M"}, ["Python", "Django"]]
     return render(request, "home.html", {"info": info})
 
 def profile(request):
