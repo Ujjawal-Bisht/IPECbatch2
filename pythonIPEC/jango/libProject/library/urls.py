@@ -22,4 +22,7 @@ from libapp import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="home"),
+    path("add_book/", views.add_book, name="add_book"),
+    path("viewbooks/", views.viewbooks, name="viewbooks"),
+    path("del/<int:id>/", views.delete_book, name="delete_book"),
 ]

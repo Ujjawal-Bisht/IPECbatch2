@@ -3,3 +3,6 @@ my_package/__pycache__/
 jango/myvenv
 jango/libProject/.venv
 jango/libProject/.github
+/jango/libProject/libapp/__pycache__
+/jango/libProject/libapp/migrations/__pycache__
+/jango/libProject/library/__pycache__

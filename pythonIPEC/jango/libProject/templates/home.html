@@ -1,11 +1,42 @@
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <style>
+        h1 {
+            color: blueviolet;
+        }
+    </style> -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
+    <!-- <h1 style="color:red;">Welcome to my Library</h1> -->
     <h1>Welcome to my Library</h1>
+    <div class="images">
+        <ul>
+            <li>large collection</li>
+            <li>remote reading</li>
+            <li>multiple genres</li>
+            <li>expert recommendations</li>
+        </ul>
+        <img id="ig1" src="{% static 'img/ig1.jpg' %}" alt="library image 1" height="400px" width="400px">
+        <img id="ig2" src="{% static 'img/ig2.jpg' %}" alt="library image 2" height="400px" width="400px">
+        <img id="ig3" src="{% static 'img/ig3.jpg' %}" alt="library image 3" height="400px" width="400px">
+        <img id="ig4" src="{% static 'img/ig4.jpg' %}" alt="library image 4" height="400px" width="400px">
+        <ul>
+            <li>large collection</li>
+            <li>remote reading</li>
+            <li>multiple genres</li>
+            <li>expert recommendations</li>
+        </ul>
+    </div>
+    <hr>
+    <footer>
+        <p>&copy; 2024 My Library. All rights reserved.</p>
+    </footer>
 </body>
 </html>
