@@ -1,28 +1,46 @@
 from django.shortcuts import render
+from .forms import BookForm
 from .models import Book
-from .form import BookForm
-
 # Create your views here.
-
 def home(request):
     return render(request, 'home.html')
 
-def add_book(request):
+def addbook(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'add_book.html', {'form': BookForm(), 'msg': 'Book added successfully!'})
+            return render(request, 'addbook.html', {'form': BookForm(), 'msg': 'Book added successfully!'})
     else:
         form = BookForm()
-    return render(request, 'add_book.html', {'form': form})
+    return render(request, 'addbook.html', {'form': form})
 
 def viewbooks(request):
-    books = Book.objects.all()
-    return render(request, 'viewbooks.html', {'books': books})
+    bookdata = Book.objects.all()
+    return render(request, 'viewbooks.html', {'bookdata': bookdata})
 
-def delete_book(request, id):
+def deletebook(request, id):
     book = Book.objects.get(id=id)
     book.delete()
-    books = Book.objects.all()
-    return render(request, 'viewbooks.html', {'books': books, 'msg': 'Book deleted successfully!'})
+    bookdata = Book.objects.all()
+    return render(request, 'viewbooks.html', {'bookdata': bookdata, 'msg': 'Book deleted successfully!'})
+
+
+def searchbook(request):
+    if request.method == "POST":
+        id = request.POST.get('id')
+        book = Book.objects.get(id=id)
+        return render(request, 'searchbook.html', {'book': book})
+    
+    return render(request, 'searchbook.html')
+
+
+def login(request):
+    return render(request, 'login.html')
+
+def logout(request):
+    return render(request, 'logout.html')
+
+def signup(request):
+    return render(request, 'signup.html')
+

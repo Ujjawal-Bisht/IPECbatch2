@@ -2,7 +2,7 @@
 URL configuration for library project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,15 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
 from django.urls import path
 from libapp import views
-
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.home, name="home"),
-    path("add_book/", views.add_book, name="add_book"),
-    path("viewbooks/", views.viewbooks, name="viewbooks"),
-    path("del/<int:id>/", views.delete_book, name="delete_book"),
+    path('admin/', admin.site.urls),
+    path('home/',views.home, name='home'),
+    path('addbook/',views.addbook, name='addbook'),
+    path('viewbooks/',views.viewbooks, name='viewbooks'),
+    path('deletebook/<int:id>/',views.deletebook, name='deletebook'),
+    path('',views.home, name='home'),
+    path('serachbook/',views.searchbook, name='searchbook'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+    path('signup/', views.signup, name='signup'),
 ]
