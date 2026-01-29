@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Library Management System{% endblock %}</title>
     <style>
+        .errorlist{
+            color: red;
+        }
         nav {
             background-color: #e00e0e;
             padding: 10px;
@@ -92,10 +95,16 @@
 <body>
     <h1>Library Management System</h1>
     <nav>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'addbook' %}">Add Book</a></li>
-        <li><a href="{% url 'viewbooks' %}">View Books</a></li>
-        <li><a href="{% url 'searchbook' %}">Search Books</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'addbook' %}">Add Book</a></li>
+            <li><a href="{% url 'viewbooks' %}">View Books</a></li>
+            <li><a href="{% url 'searchbook' %}">Search Books</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
     </nav>
     {% block main %}
     {% endblock %}
