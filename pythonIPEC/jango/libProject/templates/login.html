@@ -1,17 +1,14 @@
 {% extends "base.html" %}
-
-{% block title %}Login Up{% endblock %}
-
 {% block main %}
-<h1>Login Up</h1>    
-<div class="form-container">
-    <form method="post">
+    <h2>Login</h2>
+    <div class="form-container">
+        <form method="post">
         {% csrf_token %}
-        {{form}}
-        <button type="submit">Login Up</button>
+        {{ form }}
+        <button type="submit">Login</button>
     </form>
-{% if block %}
-    <p style="color:red;">{{ block }}</p>
-{% endif %}
-</div>
+    {% if msg %}
+        <p style="color:green;">{{ msg }}</p>
+    {% endif %}
+    </div>
 {% endblock %}

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from libapp import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',views.home, name='home'),
@@ -26,6 +27,8 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('searchbook/',views.searchbook, name='searchbook'),
     path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_new, name='logout'),
+    path('logout/', views.logout_view, name='logout'),
     path('signup/', views.signup, name='signup'),
+    path('api/books', views.BookListCreateAPIView.as_view(), name='book-list-create'),
+    path('api/books/<int:id>', views.BookRetrieveUpdateDestroyAPIView.as_view(), name='book-retrieve-update-destroy'),
 ]

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "libapp",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -131,4 +132,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "login"
+# URL name to redirect unauthenticated users to (used by @login_required)
+LOGIN_URL = "login"
+
+# Where to redirect after successful login by default
+LOGIN_REDIRECT_URL = "home"

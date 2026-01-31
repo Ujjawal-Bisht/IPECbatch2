@@ -4,6 +4,8 @@ from .models import Book
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from .serializers import BookSerializer
+from rest_framework import generics
 
 # Create your views here.
 def home(request):
@@ -42,32 +44,38 @@ def searchbook(request):
     return render(request, 'searchbook.html')
 
 
+def signup(request):
+    if request.method=='POST':
+        form=UserCreationForm(request.POST) #Create an object of UserCreationForm
+        if form.is_valid():
+            form.save()
+            return render(request,'signup.html',{'form':UserCreationForm(),'msg':'User created successfully!'})
+    else:
+        form=UserCreationForm()
+    return render(request,'signup.html',{'form':form})
+
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
             login(request, user)
             return redirect('home')
-            
         else:
-            return render(request, 'login.html', {'error': 'Invalid username or password'})
+            return render(request, 'login.html', {'form': form, 'msg': 'Invalid credentials!'})
     else:
-        return render(request, 'login.html', {'form': AuthenticationForm()})
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 @login_required
-def logout_new(request):
+def logout_view(request):
     logout(request)
     return redirect('home')
 
-def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'signup.html', {'form': UserCreationForm(), 'msg': 'User created successfully!'})
-    else:
-        form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+class BookListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
 
+class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
